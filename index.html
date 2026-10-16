@@ -1,1 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BinaryText — a polished UTF-8 text and binary conversion workspace.">
+<title>BinaryText — Text ↔ Binary</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<div class="noise"></div>
+<header class="header">
+  <a class="logo" href="#"><span class="logo-mark">01</span><span>Binary<span class="muted">Text</span></span></a>
+  <nav><a href="#workspace">Workspace</a><a href="#how">How it works</a><a href="#about">About</a></nav>
+  <div class="header-actions"><span class="status-dot"></span><span>Local processing</span></div>
+</header>
 
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="kicker"><span></span> UTF-8 TRANSLATOR</div>
+    <h1>Turn words into<br><em>bits.</em> And back.</h1>
+    <p>A focused, developer-grade workspace for translating text and binary without sending anything to a server.</p>
+    <div class="hero-buttons">
+      <a class="btn primary" href="#workspace">Open workspace <span>↘</span></a>
+      <a class="btn ghost" href="#how">See how it works</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="code-float c1">01001000</div>
+    <div class="code-float c2">01100101</div>
+    <div class="code-float c3">11110000</div>
+    <div class="visual-card"><span class="tiny">UTF-8 / LIVE</span><strong>H</strong><small>01001000</small></div>
+  </div>
+</section>
+
+<section id="workspace" class="workspace-section">
+  <div class="section-heading">
+    <div><span class="number">01</span><div><p class="eyebrow">TRANSLATION WORKSPACE</p><h2>Build your message.</h2></div></div>
+    <p>Paste, type, convert, copy. Everything stays in this browser.</p>
+  </div>
+
+  <div class="workspace">
+    <aside class="sidebar">
+      <p class="side-label">CONVERSION</p>
+      <button class="mode active" data-mode="text"><span class="mode-icon">T</span><span><b>Text → Binary</b><small>Encode UTF-8 bytes</small></span><i>⌘1</i></button>
+      <button class="mode" data-mode="binary"><span class="mode-icon">01</span><span><b>Binary → Text</b><small>Decode UTF-8 bytes</small></span><i>⌘2</i></button>
+      <div class="side-divider"></div>
+      <p class="side-label">QUICK ACTIONS</p>
+      <button id="sample" class="side-action">✦ Load example</button>
+      <button id="clear" class="side-action">⌫ Clear workspace</button>
+      <div class="privacy"><span>⌁</span><b>Private by design</b><small>No network requests. Your text never leaves this page.</small></div>
+    </aside>
+
+    <section class="editor">
+      <div class="editor-top">
+        <div><span class="live-dot"></span><span id="modeTitle">TEXT INPUT</span></div>
+        <span id="inputStats">0 characters</span>
+      </div>
+      <textarea id="input" spellcheck="false" placeholder="Start typing something..."></textarea>
+      <div class="editor-bottom">
+        <span id="hint">UTF-8 · Unicode supported · Emoji supported</span>
+        <button id="convert" class="convert">Convert <span>→</span></button>
+      </div>
+    </section>
+
+    <div class="connector"><span>↓</span><small>ENCODE</small></div>
+
+    <section class="result">
+      <div class="editor-top">
+        <div><span class="result-icon">◆</span><span id="resultTitle">BINARY OUTPUT</span></div>
+        <span id="outputStats">0 bytes</span>
+      </div>
+      <textarea id="output" class="binary-output" readonly spellcheck="false" placeholder="01001000 01100101 01101100 01101100 01101111"></textarea>
+      <div class="editor-bottom">
+        <span id="status">Ready</span>
+        <button id="copy" class="copy">Copy output <span>⌘C</span></button>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <div class="section-heading compact"><div><span class="number">02</span><div><p class="eyebrow">UNDER THE HOOD</p><h2>What actually happens?</h2></div></div></div>
+  <div class="steps">
+    <article><span>01</span><h3>Encode</h3><p>JavaScript's TextEncoder converts every character into its UTF-8 byte sequence.</p><code>"H" → 01001000</code></article>
+    <article><span>02</span><h3>Inspect</h3><p>Each byte is represented as exactly eight binary digits, making every bit visible.</p><code>8 bits = 1 byte</code></article>
+    <article><span>03</span><h3>Decode</h3><p>Binary groups become bytes, then TextDecoder reconstructs the original Unicode text.</p><code>😎 → UTF-8 → 😎</code></article>
+  </div>
+</section>
+
+<section id="about" class="stats">
+  <div><strong>UTF-8</strong><span>Unicode encoding</span></div>
+  <div><strong>0 KB</strong><span>Server uploads</span></div>
+  <div><strong>100%</strong><span>Browser based</span></div>
+  <div><strong>8-bit</strong><span>Byte grouping</span></div>
+</section>
+</main>
+
+<footer><div class="logo"><span class="logo-mark">01</span> BinaryText</div><p>Simple. Private. Precise.</p><span>Built for curious minds · 2026</span></footer>
+<script src="js/converter.js"></script>
+</body>
+</html>
