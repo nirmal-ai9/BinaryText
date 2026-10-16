@@ -1,0 +1,4 @@
+.btn,.mode,.side-action,.convert,.copy{transition:.2s ease}
+.btn:hover,.convert:hover,.copy:hover{transform:scale(1.015)}
+.fade{animation:fade .22s ease}
+@keyframes fade{from{opacity:.35}to{opacity:1}}
